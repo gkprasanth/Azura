@@ -1,11 +1,22 @@
 import styles from "../styles/Home.module.css";
-import TechnicalEventsCSEData from "./TechnicalEventsCSEData.json";
+import TechnicalEventsCSEData from "./data/TechnicalEventsCSEData.json";
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
 
 const TechnicalCSE = () => {
+  const data = [
+    {
+        "_id":"1",
+        "title":"App Fest",
+        "organizer1": "M.Priyanka",
+        "organizer2": "Ruheena Nawaz",
+        "mobile1": "tel:9110380475",
+        "mobile2": "tel:7330709398"
+    }
+ ]
+ 
   return (
     <div className={styles.container}>
       <Container>
@@ -18,7 +29,7 @@ const TechnicalCSE = () => {
           </h1>
         </Row>
         <Row xs={1} sm={1} md={2}>
-          {TechnicalEventsCSEData.map(index => (
+          {data.map(index => (
             <Col key={index._id}>
               <Card className={styles.cardDiv}>
                 <Card.Body>

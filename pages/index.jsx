@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Azura 2k23</title>
+        <title>Azura 2k24</title>
         <meta name="description" content="Annual technical symposium of CMRCET" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
@@ -29,7 +29,7 @@ export default function Home() {
         <div id="stars3"></div>
           <Row>
             <h1 className={styles.header}>
-              <span>Azura</span>2k23
+              <span>Azura</span>2k24
             </h1>
           </Row>
           <Row className={styles.description}>
@@ -39,14 +39,14 @@ export default function Home() {
           </Row>
           <Row className={styles.description}>
             <h2>
-              4th April 2023
+              6th April 2024
             </h2>
           </Row>
           <Row>
             <Countdown/>
           </Row>
           <Row className={styles.title}>
-            <h1><span>Events </span>in Azura 2k23</h1>
+            <h1><span>Events </span>in Azura 2k24</h1>
           </Row>
           <Row>
             <Col>

@@ -1,11 +1,21 @@
 import styles from "../styles/Home.module.css";
-import TechnicalEventsCSCData from "./TechnicalEventsCSCData.json";
+import TechnicalEventsCSCData from "./data/TechnicalEventsCSCData.json";
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
 
 const TechnicalCSC = () => {
+  const data = [
+    {
+        "_id":"1",
+        "title":"Break the query",
+        "organizer1": "Aneesh",
+		"organizer2": "Ch.Sai Srihari",
+		"mobile1":"tel:9392897112",
+		"mobile2":"tel:7093209837"  
+    }
+]
   return (
     <div className={styles.container}>
       <Container>
@@ -18,7 +28,7 @@ const TechnicalCSC = () => {
           </h1>
         </Row>
         <Row xs={1} sm={1} md={2}>
-          {TechnicalEventsCSCData.map(index => (
+          {data.map(index => (
             <Col key={index._id}>
               <Card className={styles.cardDiv}>
                 <Card.Body>
@@ -28,7 +38,7 @@ const TechnicalCSC = () => {
                   <i>Organized by:</i>
                   <Card.Text>
                     {index.mobile1 && (
-                      <Link href={index.mobile1}>
+                      <Link href={"index.mobile1"}>
                         <a className={styles.icon}>
                           <FaPhoneAlt />
                           <br />
@@ -37,7 +47,7 @@ const TechnicalCSC = () => {
                       </Link>
                     )}
                     {index.mobile2 && (
-                      <Link href={index.mobile2}>
+                      <Link href={"index.mobile2"}>
                         <a className={styles.icon}>
                           <br />
                           <FaPhoneAlt />
@@ -46,18 +56,9 @@ const TechnicalCSC = () => {
                         </a>
                       </Link>
                     )}
-                    {index.mobile3 && (
-                      <Link href={index.mobile3}>
-                        <a className={styles.icon}>
-                          <br />
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer3}</i>
-                        </a>
-                      </Link>
-                    )}
+                     
                   </Card.Text>
-                  <Link href={index.razorpayLink}>
+                  <Link href={"index.razorpayLink"}>
                     <a target="_blank" rel="noreferrer" className={styles.cardAnchor}>
                       Register
                     </a>

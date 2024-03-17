@@ -7,6 +7,13 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
     <div>
+      <h1 style={{
+        color:'#ffff',
+        fontSize:'2.2rem',
+        textAlign:'center',
+        padding:'20px',
+        textDecoration:'underline'
+      }}  >Technical Events</h1>
       <Head>
         <title>Azura 2k22</title>
         <meta name="description" content="Annual technical symposium of CMRCET" />
