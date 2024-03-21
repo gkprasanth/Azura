@@ -15,7 +15,7 @@ export default function Home() {
         textDecoration:'underline'
       }}  >Technical Events</h1>
       <Head>
-        <title>Azura 2k22</title>
+        <title>Azura 2k24</title>
         <meta name="description" content="Annual technical symposium of CMRCET" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>

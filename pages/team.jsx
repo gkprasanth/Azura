@@ -9,12 +9,14 @@ const Team = () => {
     {
       "id": 1,
       "name": "Sanhith",
-      "role": "Developer"
+      "role": "Developer",
+      "number": "9133897791"
     },
     {
       "id": 2,
       "name": "Aakash",
-      "role": "Designer"
+      "role": "Designer",
+      "number": "8978882003"
     }
   ]
   
@@ -22,7 +24,7 @@ const Team = () => {
       <div className={styles.container}>
         <Container>
           <Row className={styles.title}>
-            <h1><span>Student Coordinators</span> for Azura 2k23</h1>
+            <h1><span>Student Coordinators</span> for Azura 2k24</h1>
           </Row>
           <Row  xs={1} sm={1} md={2}>
           {
@@ -34,7 +36,7 @@ const Team = () => {
                       <h4>{item.name}</h4>
                       <p>{item.department}</p>
                     </Card.Text>
-                    <a className={styles.icon} href={index.mobile}>
+                    <a className={styles.icon} href={`tel:${item.number}`}>
                         <FaPhoneAlt/>
                     </a>
                   </Card.Body>
