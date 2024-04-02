@@ -1,5 +1,4 @@
 import styles from "../styles/Home.module.css";
-import TechnicalEventsITData from "./data/TechnicalEventsITData.json";
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -8,12 +7,34 @@ import Link from "next/link";
 const TechnicalIT = () => {
   const data = [
     {
-      "_id": "1",
+      "_id": 1,
       "title": "Paper Presentation",
-      "organizer1": "D.Neha",
-      "mobile1": "tel:7981564984"
+      "Organizer": "Sandhya Gayatri",
+      "year": "3rd",
+      "Roll no": "21H51A1245"
+    },
+    {
+      "_id": 2,
+      "title": "Poster Presentation",
+      "Organizer": "Kashish Singhal",
+      "year": "3rd",
+      "Roll no": "21H51A1247"
+    },
+    {
+      "_id": 3,
+      "title": "Guess The Output",
+      "Organizer": ["Akshay", "Venudhar"],
+      "year": "3rd",
+      "Roll no": ["21H51A1214", "21H51A1203"]
+    },
+    {
+      "_id": 4,
+      "title": "Bug Fixing",
+      "Organizer": ["Tanishqi", "Sharanya"],
+      "year": "3rd",
+      "Roll no": ["21H51A1234", "21H51A1240"]
     }
-  ]
+  ];
   
   return (
     <div className={styles.container}>
@@ -27,30 +48,36 @@ const TechnicalIT = () => {
           </h1>
         </Row>
         <Row xs={1} sm={1} md={2}>
-          {data.map(index => (
-            <Col key={index._id}>
+          {data.map(event => (
+            <Col key={event._id}>
               <Card className={styles.cardDiv}>
                 <Card.Body>
                   <Card.Title>
-                    <h4>{index.title}</h4>
+                    <h4>{event.title}</h4>
                   </Card.Title>
 
                   <div>Organized by:</div>
                   <Card.Text>
-                    {index.mobile1 && (
-                      <Link href={"index.mobile1"}>
-                        <a className={styles.icon}>
+                    {Array.isArray(event.Organizer) ? (
+                      event.Organizer.map((organizer, index) => (
+                        <div key={index}>
                           <br />
                           <FaPhoneAlt />
                           <br />
-                          <i>{index.organizer1}</i>
-                        </a>
-                      </Link>
+                          <i>{organizer}</i>
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <br />
+                        <FaPhoneAlt />
+                        <br />
+                        <i>{event.Organizer}</i>
+                      </div>
                     )}
-
-                    
-                     
                   </Card.Text>
+
+                  {/* Register button */}
                   <Link href={"index.razorpayLink"}>
                     <a target="_blank" rel="noreferrer" className={styles.cardAnchor}>
                       Register
@@ -65,4 +92,5 @@ const TechnicalIT = () => {
     </div>
   );
 };
+
 export default TechnicalIT;

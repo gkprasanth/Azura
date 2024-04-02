@@ -8,14 +8,46 @@ import Link from "next/link";
 const TechnicalCSE = () => {
   const data = [
     {
-        "_id":"1",
-        "title":"App Fest",
-        "organizer1": "M.Priyanka",
-        "organizer2": "Ruheena Nawaz",
-        "mobile1": "tel:9110380475",
-        "mobile2": "tel:7330709398"
+      "_id": 1,
+      "title": "Paper Presentation",
+      "Organizer": "Ruchitha, G.Malini, D.Dinisha"
+    },
+    {
+      "_id": 2,
+      "title": "Poster Presentation",
+      "Organizer": "Sindhu Bairoju, Zaneta"
+    },
+    {
+      "_id": 3,
+      "title": "Project Expo",
+      "Organizer": "Veena Madhuri, Murali, Arjun"
+    },
+    {
+      "_id": 4,
+      "title": "Crack it up",
+      "Organizer": "Suraj, Amulya"
+    },
+    {
+      "_id": 5,
+      "title": "Blind Coding",
+      "Organizer": "Jaya Sree, Deepak"
+    },
+    {
+      "_id": 6,
+      "title": "Logo & UI Designing",
+      "Organizer": "Karthik, Roopak Reddy, Rahul"
+    },
+    {
+      "_id": 7,
+      "title": "Coding Premier League",
+      "Organizer": "Praveen kumar, K.Shashank, Beta Harshith"
+    },
+    {
+      "_id": 8,
+      "title": "Fresh Man Code Cup",
+      "Organizer": "Nikhil, Vignesh"
     }
- ]
+  ];
  
   return (
     <div className={styles.container}>
@@ -38,44 +70,22 @@ const TechnicalCSE = () => {
                   </Card.Title>
                   <p>Organized by:</p>
                   <Card.Text>
-                    {index.mobile1 && (
-                      <Link href={index.mobile1}>
-                        <a className={styles.icon}>
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer1}</i>
-                        </a>
-                      </Link>
-                    )}
-                    {index.mobile2 && (
-                      <Link href={index.mobile2}>
-                        <a className={styles.icon}>
+                  {Array.isArray(index.Organizer) ? (
+                      index.Organizer.map((organizer, index) => (
+                        <div key={index}>
                           <br />
                           <FaPhoneAlt />
                           <br />
-                          <i>{index.organizer2}</i>
-                        </a>
-                      </Link>
-                    )}
-                    {index.mobile3 && (
-                      <Link href={index.mobile3}>
-                        <a className={styles.icon}>
-                          <br />
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer3}</i>
-                        </a>
-                      </Link>
-                    )}
-                    {index.mobile4 && (
-                      <Link href={index.mobile4}>
-                        <a className={styles.icon}>
-                          <br />
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer4}</i>
-                        </a>
-                      </Link>
+                          <i>{organizer}</i>
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <br />
+                        <FaPhoneAlt />
+                        <br />
+                        <i>{index.Organizer}</i>
+                      </div>
                     )}
                   </Card.Text>
                   <a href={index.razorpayLink} target="_blank" rel="noreferrer" className={styles.cardAnchor}>

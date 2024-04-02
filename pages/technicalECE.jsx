@@ -8,14 +8,41 @@ import Link from "next/link";
 const TechnicalECE = () => {
   const data = [
     {
-       "_id":"1",
-       "title":"Alighting talk",
-       "organizer1": "E. Hepsiba",
-       "organizer2": "M. Deepthi",
-       "mobile1": "tel:9177188313",
-       "mobile2": "tel:7569801175"
+      "_id": 1,
+      "title": "PROJECT EXPO",
+      "Organizer": "YAKKANNA, SUJIT, THANUJA"
+    },
+    {
+      "_id": 2,
+      "title": "PAPER PRESENTATION",
+      "Organizer": "JHANAVI, NITHIN R"
+    },
+    {
+      "_id": 3,
+      "title": "POSTER PRESENTATION",
+      "Organizer": "NAGRAJ, VIVEK"
+    },
+    {
+      "_id": 4,
+      "title": "INTELLECT QUEST",
+      "Organizer": "KRISHNA, PAVITHRA"
+    },
+    {
+      "_id": 5,
+      "title": "CONTENT WRITING",
+      "Organizer": "RACHANA, SHINY"
+    },
+    {
+      "_id": 6,
+      "title": "CIPHER CIRCUIT",
+      "Organizer": "ABHEEK, ARAVIND"
+    },
+    {
+      "_id": 7,
+      "title": "CIRCUITRONICS",
+      "Organizer": "PRANITHA, RISHIKA"
     }
- ]
+  ];
  
   return (
     <div className={styles.container}>
@@ -38,26 +65,23 @@ const TechnicalECE = () => {
                   </Card.Title>
                   <p>Organized by:</p>
                   <Card.Text>
-                    {index.mobile1 && (
-                      <Link href={"index.mobile1"}>
-                        <a className={styles.icon}>
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer1}</i>
-                        </a>
-                      </Link>
-                    )}
-                    {index.mobile2 && (
-                      <Link href={"index.mobile2"}>
-                        <a className={styles.icon}>
+                  {Array.isArray(index.Organizer) ? (
+                      index.Organizer.map((organizer, index) => (
+                        <div key={index}>
                           <br />
                           <FaPhoneAlt />
                           <br />
-                          <i>{index.organizer2}</i>
-                        </a>
-                      </Link>
+                          <i>{organizer}</i>
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <br />
+                        <FaPhoneAlt />
+                        <br />
+                        <i>{index.Organizer}</i>
+                      </div>
                     )}
-                     
                   </Card.Text>
                   <Link href={"index.razorpayLink"}>
                     <a target="_blank" rel="noreferrer" className={styles.cardAnchor}>

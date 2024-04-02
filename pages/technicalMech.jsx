@@ -8,17 +8,35 @@ import Link from "next/link";
 const TechnicalMech = () => {
   const data = [
     {
-      "_id": "1",
-      "title": "Paper Presentation",
-      "organizer1": "Sandeep",
-      "organizer2": "Vamshi",
-      "mobile1": "tel:8328161693"
+      "s.no": 1,
+      "title": "Paper presentation",
+      "Organizer": "Dharmendar Ramawat"
+    },
+    {
+      "s.no": 2,
+      "title": "Poster presentation",
+      "Organizer": "G.Uday, Naga Durga Kondal Rao"
+    },
+    {
+      "s.no": 3,
+      "title": "AutoCAD Designing",
+      "Organizer": "Bh.Phanindra, Joseph"
+    },
+    {
+      "s.no": 4,
+      "title": "Technical Debate",
+      "Organizer": "A.Sagar, B.Kishore"
+    },
+    {
+      "s.no": 5,
+      "title": "Assembly and Disassembly of engines",
+      "Organizer": "J.Sandeep, B.Himawanth"
     }
-  ]
+  ];
   return (
     <>
 
-      
+
 
       <div className={styles.container}>
 
@@ -41,14 +59,22 @@ const TechnicalMech = () => {
                     </Card.Title>
                     <p>Organized by:</p>
                     <Card.Text>
-                      {index.mobile1 && (
-                        <Link href={"index.mobile1"}>
-                          <a className={styles.icon}>
+                      {Array.isArray(index.Organizer) ? (
+                        index.Organizer.map((organizer, index) => (
+                          <div key={index}>
+                            <br />
                             <FaPhoneAlt />
                             <br />
-                            <i>{index.organizer1}</i>
-                          </a>
-                        </Link>
+                            <i>{organizer}</i>
+                          </div>
+                        ))
+                      ) : (
+                        <div>
+                          <br />
+                          <FaPhoneAlt />
+                          <br />
+                          <i>{index.Organizer}</i>
+                        </div>
                       )}
 
 

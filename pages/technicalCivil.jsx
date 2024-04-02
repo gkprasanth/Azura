@@ -7,18 +7,30 @@ import Link from "next/link";
 
 const TechnicalCivil = () => {
   
-  const data = [
+  const data =  [
     {
-        "_id":"1",
-        "title":"Paper Presentation",
-        "organizer1": "Kalyani",
-       "organizer2": "Naveen",
-       "mobile1":"tel:9866260243",
-       "mobile2":"tel:6300763029"
+      "_id": 1,
+      "title": "Poster Presentation",
+      "Organizer": ["V.Srimuktha", "J.Ruchitha"]
+    },
+    {
+      "_id": 2,
+      "title": "Paper presentation",
+      "Organizer": ["M.Sowmya", "G.Jahnavi"]
+    },
+    {
+      "_id": 3,
+      "title": "Survey hunt",
+      "Organizer": ["M.Eshwar", "Rakesh"]
+    },
+    {
+      "_id": 4,
+      "title": "Tech quiz",
+      "Organizer": ["T.Keerthana", "V.Varshitha"]
     }
-    
-     
- ]
+  ];
+
+  
   return (
     <div className={styles.container}>
       <Container>
@@ -40,25 +52,22 @@ const TechnicalCivil = () => {
                   </Card.Title>
                   <p>Organized by:</p>
                   <Card.Text>
-                    {index.mobile1 && (
-                      <Link href={"index.mobile1"}>
-                        <a className={styles.icon}>
+                  {Array.isArray(index.Organizer) ? (
+                      index.Organizer.map((organizer, index) => (
+                        <div key={index}>
+                          <br />
                           <FaPhoneAlt />
                           <br />
-                          <i>{index.organizer1}</i>
-                        </a>
-                      </Link>
-                    )}
-                    {index.mobile2 && (
-                      <Link href={"index.mobile2"}>
-                        <a className={styles.icon}>
-                          <br />
-
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer2}</i>
-                        </a>
-                      </Link>
+                          <i>{organizer}</i>
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <br />
+                        <FaPhoneAlt />
+                        <br />
+                        <i>{index.Organizer}</i>
+                      </div>
                     )}
                    
                   </Card.Text>

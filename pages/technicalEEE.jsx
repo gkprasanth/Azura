@@ -9,14 +9,36 @@ const TechnicalEEE = () => {
 
   const data = [
     {
-        "_id":"1",
-        "title":"Paper Presentation",
-        "organizer1": "Akshaya",
-        "organizer2": "Maharshi",
-        "mobile1": "tel:9603298910",
-        "mobile2": "tel:9347263673"
-    } 
- ]
+      "_id": 1,
+      "title": "Paper presentation",
+      "Organizer": "M. Vignesh / Shashivardhan"
+    },
+    {
+      "_id": 2,
+      "title": "Poster presentation",
+      "Organizer": "Srinivas / Rushikesh"
+    },
+    {
+      "_id": 3,
+      "title": "Project Expo",
+      "Organizer": "Bakeshwar / Jayakishan"
+    },
+    {
+      "_id": 4,
+      "title": "Tricky circuits",
+      "Organizer": "Sahasra / Tejaswini"
+    },
+    {
+      "_id": 5,
+      "title": "Technical quiz",
+      "Organizer": "A. Poojitha / Awantika"
+    },
+    {
+      "_id": 6,
+      "title": "Who am i",
+      "Organizer": "Sanjana / Gayathri"
+    }
+  ];
 
   return (
     <div className={styles.container}>
@@ -39,26 +61,23 @@ const TechnicalEEE = () => {
                   </Card.Title>
                   <p>Organized by:</p>
                   <Card.Text>
-                    {index.mobile1 && (
-                      <Link href={"index.mobile1"}>
-                        <a className={styles.icon}>
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer1}</i>
-                        </a>
-                      </Link>
-                    )}
-                    {index.mobile2 && (
-                      <Link href={"index.mobile2"}>
-                        <a className={styles.icon}>
+                    {Array.isArray(index.Organizer) ? (
+                      index.Organizer.map((organizer, index) => (
+                        <div key={index}>
                           <br />
                           <FaPhoneAlt />
                           <br />
-                          <i>{index.organizer2}</i>
-                        </a>
-                      </Link>
+                          <i>{organizer}</i>
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <br />
+                        <FaPhoneAlt />
+                        <br />
+                        <i>{index.Organizer}</i>
+                      </div>
                     )}
-                     
                   </Card.Text>
                   <Link href={"index.razorpayLink"}>
                     <a target="_blank" rel="noreferrer" className={styles.cardAnchor}>

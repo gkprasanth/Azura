@@ -8,14 +8,66 @@ import Link from "next/link";
 const TechnicalCSM = () => {
   const data = [
     {
-        "_id":"1",
-        "title":"UI Design Wars",
-        "organizer1": "Sai Nishwan" ,
-        "organizer2": "Ankit Singh",
-        "mobile1":  "tel:7982975415",
-        "mobile2":  "tel:7982485791"
+      "_id": 1,
+      "title": "Poster presentation",
+      "Organizer": "P. Vasavi, B. Nandini"
+    },
+    {
+      "_id": 2,
+      "title": "Paper Presentation",
+      "Organizer": "G.Lakshmi Lahari, B.Gowthami"
+    },
+    {
+      "_id": 3,
+      "title": "Ima Code",
+      "Organizer": "Priyal, Nikhil Chary"
+    },
+    {
+      "_id": 4,
+      "title": "Bug Rack",
+      "Organizer": "Jashua Prasanna Kumar, Md.Mohassin Hussain"
+    },
+    {
+      "_id": 5,
+      "title": "Binary Blitz",
+      "Organizer": "P.Sathwika, M.Anjali"
+    },
+    {
+      "_id": 6,
+      "title": "Pool Puzzle",
+      "Organizer": "Vivek, Sai Varun"
+    },
+    {
+      "_id": 7,
+      "title": "Tech Talk",
+      "Organizer": "Yagna Priya, Amulya"
+    },
+    {
+      "_id": 8,
+      "title": "Code in Dark",
+      "Organizer": "Karunakar, Jaya Shankar"
+    },
+    {
+      "_id": 9,
+      "title": "Web Witz",
+      "Organizer": "Sreevallika, Vamshi"
+    },
+    {
+      "_id": 10,
+      "title": "Code Auction",
+      "Organizer": "Varshith, Deekshitha"
+    },
+    {
+      "_id": 11,
+      "title": "MP Star",
+      "Organizer": "Samyuktha, Parimala"
+    },
+    {
+      "_id": 12,
+      "title": "Code Anthakshari",
+      "Organizer": "Bhanu Tej, Jyotsna"
     }
- ]
+  ];
   return (
     <div className={styles.container}>
       <Container>
@@ -37,25 +89,23 @@ const TechnicalCSM = () => {
                   </Card.Title>
                   <p>Organized by:</p>
                   <Card.Text>
-                    {index.mobile1 && (
-                      <Link href={"index.mobile1"}>
-                        <a className={styles.icon}>
+                  {Array.isArray(index.Organizer) ? (
+                      index.Organizer.map((organizer, index) => (
+                        <div key={index}>
+                          <br />
                           <FaPhoneAlt />
                           <br />
-                          <i>{index.organizer1}</i>
-                        </a>
-                      </Link>
+                          <i>{organizer}</i>
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <br />
+                        <FaPhoneAlt />
+                        <br />
+                        <i>{index.Organizer}</i>
+                      </div>
                     )}
-                    {index.mobile2 && (
-                      <Link href={"index.mobile2"}>
-                        <a className={styles.icon}>
-                          <FaPhoneAlt />
-                          <br />
-                          <i>{index.organizer2}</i>
-                        </a>
-                      </Link>
-                    )}
-                     
                   </Card.Text>
                   <Link href={"index.razorpayLink"}>
                     <a target="_blank" rel="noreferrer" className={styles.cardAnchor}>
